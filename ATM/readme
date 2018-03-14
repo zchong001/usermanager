@@ -15,3 +15,4 @@ ATM开发+购物商场程序 模块内容
             账户转出到其他账户金额,信用额度提现金额,信用卡还款金额}
   {name,password,credit_limit,amount_money,credit_limit_spending,amount_money_spending,
    money_in,money_out,credit_limit_cash,credit_limit_repayment}
+

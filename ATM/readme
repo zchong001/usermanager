@@ -22,5 +22,6 @@ ATM开发+购物商场程序 模块内容
   账户转出到其他账户金额,----money_out
   信用额度提现金额,----credit_limit_cash
   信用卡还款金额----credit_limit_repayment
+  冻结信号 ----frozen_credit_card_flag
   }
 

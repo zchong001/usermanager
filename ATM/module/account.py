@@ -7,7 +7,7 @@ path = os.path.join(path,path_new)
 #创建账户  使用缺省参数
 def account_creat(acc_name,password=123456,credit_limit=15000,amount_money=2000,credit_limit_spending=0,
                  amount_money_spending=0,money_in=0,money_out=0,
-                 credit_limit_cash=0,credit_limit_repayment=0):
+                 credit_limit_cash=0,credit_limit_repayment=0,frozen_credit_card_flag=0):
     account = {
         'name': acc_name,
         'password': password,
@@ -18,7 +18,8 @@ def account_creat(acc_name,password=123456,credit_limit=15000,amount_money=2000,
         'money_in': money_in,
         'money_out': money_out,
         'credit_limit_cash': credit_limit_cash,
-        'credit_limit_repayment': credit_limit_repayment
+        'credit_limit_repayment': credit_limit_repayment,
+        'frozen_credit_card_flag':frozen_credit_card_flag
     }
     acc_name = os.path.join(path,acc_name)
     with open(acc_name,'w') as file:
@@ -34,18 +35,21 @@ def accout_save(acc_name,**kwargs):
         #     print('%s : %s'%(index,acc_info[index]))
         # print('------------------------------------')
         #打印传入信息,并修改账户信息
-        for index in kwargs:
-            acc_info[index]=kwargs[index]
-        #保存修改信息
-        with open(acc_name,'w') as new_file:
-            # print(acc_info)
-            json.dump(acc_info, new_file)
+        if acc_info['frozen_credit_card_flag'] == '0':
+            for index in kwargs:
+                acc_info[index]=kwargs[index]
+            #保存修改信息
+            with open(acc_name,'w') as new_file:
+                # print(acc_info)
+                json.dump(acc_info, new_file)
+        elif acc_info['frozen_credit_card_flag'] == '1':
+            print('信用卡已被冻结')
 
 
 
 if __name__ == '__main__':
-    # account_creat('D:/python/learngit/ATM\data/test')
-    accout_save('john', credit_limit=10000, amount_money=10000)
+    # account_creat('tom')
+    accout_save('tom', credit_limit=10000, amount_money=10000,frozen_credit_card_flag=1)
     # path = os.path.dirname(os.path.dirname(__file__))
     # path_new = 'data'
     # path = os.path.join(path,path_new)

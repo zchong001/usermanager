@@ -11,8 +11,16 @@ ATM开发+购物商场程序 模块内容
     11.用户认证用装饰器
 --------------------------------------------------
 1.设计账户需要保存的内容
-  {姓名,密码,信用额度,账户余额,信用额度消费金额,账户余额消费金额,其他账户转入金额,
-            账户转出到其他账户金额,信用额度提现金额,信用卡还款金额}
-  {name,password,credit_limit,amount_money,credit_limit_spending,amount_money_spending,
-   money_in,money_out,credit_limit_cash,credit_limit_repayment}
+  {
+  姓名,----name
+  密码,----password
+  信用额度,----credit_limit
+  账户余额,----amount_money
+  信用额度消费金额,----credit_limit_spending
+  账户余额消费金额,----amount_money_spending
+  其他账户转入金额,----money_in
+  账户转出到其他账户金额,----money_out
+  信用额度提现金额,----credit_limit_cash
+  信用卡还款金额----credit_limit_repayment
+  }
 
